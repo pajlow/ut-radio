@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main.qml</file>
+        <file>pages/MainPage.qml</file>
+        <file>pages/SearchPage.qml</file>
+        <file>net/Network.qml</file>
+        <file>net/qmldir</file>
+        <file>util/Functions.qml</file>
+        <file>util/qmldir</file>
+        <file>notify/Notification.qml</file>
+        <file>notify/Notify.qml</file>
+        <file>notify/qmldir</file>
+        <file>pages/UrlPage.qml</file>
+        <file>colors/Colors.qml</file>
+        <file>colors/qmldir</file>
+        <file>util/ThemedHeader.qml</file>
+    </qresource>
+</RCC>

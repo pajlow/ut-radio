@@ -1,0 +1,15 @@
+{
+    "name": "radio.s710",
+    "description": "App for playing webradio streams",
+    "architecture": "@CLICK_ARCH@",
+    "title": "Radio",
+    "hooks": {
+        "Radio": {
+            "apparmor": "Radio.apparmor",
+            "desktop":  "Radio.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "Patrick Fial <mg.m@gmx.net>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}
