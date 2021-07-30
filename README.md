@@ -15,6 +15,8 @@ Streams can be saved as favourite for quick and easy access.
 
 The search is powered by the awesome https://www.radio-browser.info.
 
+[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/radio.s710)
+
 ## License
 
 Copyright (C) 2021  Patrick Fial
