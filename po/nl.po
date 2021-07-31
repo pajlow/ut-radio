@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the radio.s710 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: radio.s710\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 14:12+0000\n"
+"PO-Revision-Date: 2021-07-30 21:12+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: ../qml/net/Network.qml:25 ../qml/net/Network.qml:30
+#: ../qml/net/Network.qml:67 ../qml/net/Network.qml:86
+msgid "Failed to determine base host"
+msgstr "De hostnaam kan niet worden vastgesteld"
+
+#: ../qml/net/Network.qml:39
+msgid "Base URL unavailable"
+msgstr "De url is onbereikbaar"
+
+#: ../qml/net/Network.qml:62
+msgid "Failed to parse search results"
+msgstr "De zoekresultaten kunnen niet worden verwerkt"
+
+#: ../qml/pages/MainPage.qml:56
+msgid "Error"
+msgstr "Foutmelding"
+
+#: ../qml/pages/MainPage.qml:60 ../qml/pages/MainPage.qml:339
+msgid "Playing"
+msgstr "Aan het afspelen"
+
+#: ../qml/pages/MainPage.qml:61
+msgid "Stopped"
+msgstr "Niet aan het afspelen"
+
+#: ../qml/pages/MainPage.qml:62
+msgid "Paused"
+msgstr "Onderbroken"
+
+#: ../qml/pages/MainPage.qml:68
+msgid "NoMedia"
+msgstr "Geen media"
+
+#: ../qml/pages/MainPage.qml:69
+msgid "Loading"
+msgstr "Bezig met laden…"
+
+#: ../qml/pages/MainPage.qml:71
+msgid "Buffering"
+msgstr "Bezig met bufferen…"
+
+#: ../qml/pages/MainPage.qml:72
+msgid "Stalled"
+msgstr "Vastgelopen"
+
+#: ../qml/pages/MainPage.qml:73
+msgid "Buffered"
+msgstr "Gebufferd"
+
+#: ../qml/pages/MainPage.qml:118
+msgid ""
+"Failed to lookup hostname for radio-browser.info. Searching for web streams "
+"might be unavailable. Check internet connection and restart app."
+msgstr ""
+"De hostnaam van radio-browser.info kan niet worden vastgesteld - hierdoor "
+"kun je niet zoeken naar streams. Controleer je internetverbinding en "
+"herstart de app."
+
+#: ../qml/pages/MainPage.qml:118 ../qml/pages/SearchPage.qml:62
+msgid "Radio Browser"
+msgstr "Radiostations"
+
+#: ../qml/pages/MainPage.qml:151
+msgid "No station"
+msgstr "Geen radiostation"
+
+#: ../qml/pages/MainPage.qml:277
+msgid "Favourites"
+msgstr "Favorieten"
+
+#: ../qml/pages/MainPage.qml:339
+msgid "Web stream"
+msgstr "Internetradio"
+
+#: ../qml/pages/SearchPage.qml:21 ../qml/pages/SearchPage.qml:49
+msgid "Search"
+msgstr "Zoeken"
+
+#: ../qml/pages/SearchPage.qml:44
+msgid "Enter search term"
+msgstr "Voer een zoekopdracht in"
+
+#: ../qml/pages/SearchPage.qml:62
+msgid ""
+"Failed to search for stations at radio-browser.info. Check internet "
+"connection."
+msgstr ""
+"radio-browser.info kan niet worden doorzocht - controleer je "
+"internetverbinding."
+
+#: ../qml/pages/UrlPage.qml:21
+msgid "Manual stream URL"
+msgstr "Eigen url"
+
+#: ../qml/pages/UrlPage.qml:57
+msgid "Enter stream URL"
+msgstr "Voer een stream-url in"
+
+#: ../qml/pages/UrlPage.qml:63
+msgid "URL:"
+msgstr "URL:"
+
+#: ../qml/pages/UrlPage.qml:85
+msgid "Enter stream name"
+msgstr "Geef de stream een naam"
+
+#: ../qml/pages/UrlPage.qml:91
+msgid "Name:"
+msgstr "Naam:"
+
+#: ../qml/pages/UrlPage.qml:114
+msgid "Enter URL to station image/artwork"
+msgstr "Voer de url in van het radiologo/een afbeelding"
+
+#: ../qml/pages/UrlPage.qml:120
+msgid "Image:"
+msgstr "Afbeelding:"
+
+#: ../qml/pages/UrlPage.qml:142
+msgid "Open stream"
+msgstr "Stream openen"
+
+#: Radio.desktop.in.h:1
+msgid "Radio"
+msgstr "Radio"
