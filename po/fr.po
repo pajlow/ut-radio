@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the radio.s710 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: radio.s710\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-30 14:12+0000\n"
+"PO-Revision-Date: 2021-08-08 20:58+0200\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Anne017\n"
+"Language-Team: \n"
+
+#: ../qml/net/Network.qml:25 ../qml/net/Network.qml:30
+#: ../qml/net/Network.qml:67 ../qml/net/Network.qml:86
+msgid "Failed to determine base host"
+msgstr "Impossible de déterminer l'hôte de base"
+
+#: ../qml/net/Network.qml:39
+msgid "Base URL unavailable"
+msgstr "Le lien de la base est indisponible"
+
+#: ../qml/net/Network.qml:62
+msgid "Failed to parse search results"
+msgstr "Échec de l'analyse des résultats de la recherche"
+
+#: ../qml/pages/MainPage.qml:56
+msgid "Error"
+msgstr "Erreur"
+
+#: ../qml/pages/MainPage.qml:60 ../qml/pages/MainPage.qml:339
+msgid "Playing"
+msgstr "En cours"
+
+#: ../qml/pages/MainPage.qml:61
+msgid "Stopped"
+msgstr "Arrêtée"
+
+#: ../qml/pages/MainPage.qml:62
+msgid "Paused"
+msgstr "Mise en pause"
+
+#: ../qml/pages/MainPage.qml:68
+msgid "NoMedia"
+msgstr "Aucun média"
+
+#: ../qml/pages/MainPage.qml:69
+msgid "Loading"
+msgstr "Chargement"
+
+#: ../qml/pages/MainPage.qml:71
+msgid "Buffering"
+msgstr "En cours de mise en mémoire tampon"
+
+#: ../qml/pages/MainPage.qml:72
+msgid "Stalled"
+msgstr "Bloquée"
+
+#: ../qml/pages/MainPage.qml:73
+msgid "Buffered"
+msgstr "Mise en mémoire tampon"
+
+#: ../qml/pages/MainPage.qml:118
+msgid ""
+"Failed to lookup hostname for radio-browser.info. Searching for web streams "
+"might be unavailable. Check internet connection and restart app."
+msgstr ""
+"Impossible de trouver le nom d'hôte de radio-browser.info. La recherche de "
+"flux internet peut être indisponible. Vérifiez la connexion à internet et "
+"redémarrez l'application."
+
+#: ../qml/pages/MainPage.qml:118 ../qml/pages/SearchPage.qml:62
+msgid "Radio Browser"
+msgstr "Navigateur de radios"
+
+#: ../qml/pages/MainPage.qml:151
+msgid "No station"
+msgstr "Aucune station"
+
+#: ../qml/pages/MainPage.qml:277
+msgid "Favourites"
+msgstr "Favoris"
+
+#: ../qml/pages/MainPage.qml:339
+msgid "Web stream"
+msgstr "Flux internet"
+
+#: ../qml/pages/SearchPage.qml:21 ../qml/pages/SearchPage.qml:49
+msgid "Search"
+msgstr "Rechercher"
+
+#: ../qml/pages/SearchPage.qml:44
+msgid "Enter search term"
+msgstr "Saisissez un mot à rechercher"
+
+#: ../qml/pages/SearchPage.qml:62
+msgid ""
+"Failed to search for stations at radio-browser.info. Check internet "
+"connection."
+msgstr ""
+"Erreur lors de la recherche de stations sur radio-browser.info. Vérifiez "
+"votre connexion à internet."
+
+#: ../qml/pages/UrlPage.qml:21
+msgid "Manual stream URL"
+msgstr "Lien du flux manuel"
+
+#: ../qml/pages/UrlPage.qml:57
+msgid "Enter stream URL"
+msgstr "Saisissez le lien du flux"
+
+#: ../qml/pages/UrlPage.qml:63
+msgid "URL:"
+msgstr "Lien :"
+
+#: ../qml/pages/UrlPage.qml:85
+msgid "Enter stream name"
+msgstr "Saisissez le nom d'un flux"
+
+#: ../qml/pages/UrlPage.qml:91
+msgid "Name:"
+msgstr "Nom :"
+
+#: ../qml/pages/UrlPage.qml:114
+msgid "Enter URL to station image/artwork"
+msgstr "Saisissez le lien vers l'illustration de la station"
+
+#: ../qml/pages/UrlPage.qml:120
+msgid "Image:"
+msgstr "Image :"
+
+#: ../qml/pages/UrlPage.qml:142
+msgid "Open stream"
+msgstr "Ouvrir le flux"
+
+#: Radio.desktop.in.h:1
+msgid "Radio"
+msgstr "Radio"
