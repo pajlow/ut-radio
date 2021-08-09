@@ -39,7 +39,6 @@ Rectangle {
           anchors.right: parent.right
 
           ListItem {
-              anchors.top: header.bottom
               anchors.left: parent.left
               anchors.right: parent.right
               color: Colors.surfaceColor
@@ -68,7 +67,6 @@ Rectangle {
           }
 
           ListItem {
-              anchors.top: header.bottom
               anchors.left: parent.left
               anchors.right: parent.right
               color: Colors.surfaceColor
@@ -96,7 +94,6 @@ Rectangle {
           }
 
           ListItem {
-              anchors.top: header.bottom
               anchors.left: parent.left
               anchors.right: parent.right
               color: Colors.surfaceColor
@@ -125,7 +122,6 @@ Rectangle {
           }
 
           ListItem {
-              anchors.top: header.bottom
               anchors.left: parent.left
               anchors.right: parent.right
               color: Colors.surfaceColor
@@ -144,11 +140,12 @@ Rectangle {
 
                      onClicked: {
                         var station = {
-                           id: Qt.md5(urlField.text),
+                           stationID: Qt.md5(urlField.text),
                            url: urlField.text,
                            name: nameField.text,
                            image: imageField.text,
-                           manual: true
+                           manual: true,
+                           favourite: Functions.hasFavourite(Qt.md5(urlField.text))
                         }
 
                         emit: stationChanged(station)

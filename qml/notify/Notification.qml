@@ -99,7 +99,7 @@ Rectangle {
          anchors.centerIn: parent
          width: units.gu(4)
          height: units.gu(4)
-         color: Colors.detailText // "#cdcdcd"
+         color: Colors.borderColor // "#cdcdcd"
          iconName: "close"
          onClicked: Notify.dismiss()
       }

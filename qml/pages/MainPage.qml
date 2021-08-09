@@ -104,7 +104,7 @@ Rectangle {
             break;
          }
       }
-    }
+   }
 
    ListModel {
       id: favouriteModel
@@ -302,7 +302,7 @@ Rectangle {
 
          onClicked: setLastStation(JSON.parse(JSON.stringify(favouriteModel.get(index))))
 
-         trailingActions: ListItemActions {
+         leadingActions: ListItemActions {
             actions: [
                Action {
                   iconName: "delete"

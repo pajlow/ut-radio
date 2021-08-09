@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radio.s710\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-30 14:06+0000\n"
-"PO-Revision-Date: 2021-07-30 16:06+0200\n"
+"POT-Creation-Date: 2021-07-31 08:08+0000\n"
+"PO-Revision-Date: 2021-07-31 10:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -84,7 +84,7 @@ msgstr "Radio-Browser"
 msgid "No station"
 msgstr "Keine Station"
 
-#: ../qml/pages/MainPage.qml:277
+#: ../qml/pages/MainPage.qml:277 ../qml/util/Functions.qml:41
 msgid "Favourites"
 msgstr "Favoriten"
 
@@ -112,34 +112,43 @@ msgstr ""
 msgid "Manual stream URL"
 msgstr "Manuelle URL"
 
-#: ../qml/pages/UrlPage.qml:57
+#: ../qml/pages/UrlPage.qml:56
 msgid "Enter stream URL"
 msgstr "Stream-URL eingeben"
 
-#: ../qml/pages/UrlPage.qml:63
+#: ../qml/pages/UrlPage.qml:62
 msgid "URL:"
 msgstr "URL:"
 
-#: ../qml/pages/UrlPage.qml:85
+#: ../qml/pages/UrlPage.qml:83
 msgid "Enter stream name"
 msgstr "Name des Streams eingeben"
 
-#: ../qml/pages/UrlPage.qml:91
+#: ../qml/pages/UrlPage.qml:89
 msgid "Name:"
 msgstr "Name:"
 
-#: ../qml/pages/UrlPage.qml:114
+#: ../qml/pages/UrlPage.qml:111
 msgid "Enter URL to station image/artwork"
 msgstr "URL zu Bild/Artwork eingeben"
 
-#: ../qml/pages/UrlPage.qml:120
+#: ../qml/pages/UrlPage.qml:117
 msgid "Image:"
 msgstr "Bild:"
 
-#: ../qml/pages/UrlPage.qml:142
+#: ../qml/pages/UrlPage.qml:138
 msgid "Open stream"
 msgstr "Stream Öffnen"
+
+#: ../qml/util/Functions.qml:41
+msgid "URL for station has already been added as favourite"
+msgstr "URL für Sender wurde bereits als Favorit hinzugefügt"
 
 #: Radio.desktop.in.h:1
 msgid "Radio"
 msgstr "Radio"
+
+#, fuzzy
+#~| msgid "No station"
+#~ msgid "URL for station '"
+#~ msgstr "Keine Station"

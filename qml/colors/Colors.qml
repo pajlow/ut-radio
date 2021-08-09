@@ -7,6 +7,7 @@ Item {
 
    property color backgroundColor: darkMode ? "#121212" : "white"
    property color surfaceColor: darkMode ? "#292929" : "white"
+   property color surfaceColor2:  darkMode ? "#3b3b3b" : "white"
    property color borderColor: darkMode ? "#121212" : "#e3e3e3"
    property color highlightColor: darkMode ? "#313131" : "gray"
 

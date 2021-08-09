@@ -3,6 +3,8 @@ pragma Singleton
 import QtQuick 2.0
 import Qt.labs.settings 1.0
 
+import "../notify"
+
 Item {
    property var favouriteModel
 
@@ -34,12 +36,14 @@ Item {
          s = {}
       }
 
+      if (s[station.stationID]) {
+         Notify.warning(i18n.tr("Favourites"), i18n.tr("URL for station has already been added as favourite"))
+         return
+      }
+
       station.favourite = true
-
-      if (!s[station.stationID])
-         favouriteModel.append(JSON.parse(JSON.stringify(station)))
-
       s[station.stationID] = station
+      favouriteModel.append(JSON.parse(JSON.stringify(station)))
 
       settings.setValue("favouriteStations", JSON.stringify(s))
    }
