@@ -16,7 +16,7 @@ Rectangle {
    anchors.horizontalCenter: parent.horizontalCenter
 
    width: parent.width - 2*units.gu(1)
-   height: expanded ? units.gu(40) : units.gu(5.5)
+   height: expanded ? (Math.min(childrenRect.height + units.gu(1), units.gu(40))) : units.gu(5.5)
 
    clip: true
    color: Colors.surfaceColor // "white"
@@ -112,7 +112,7 @@ Rectangle {
       anchors.left: parent.left
       anchors.right: parent.right
 
-      height: units.gu(32)
+      height: Math.min(units.gu(32), fullText.height)
       contentWidth: parent.width - units.gu(4)
       contentHeight: fullText.height
       visible: expanded

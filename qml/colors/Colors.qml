@@ -1,17 +1,21 @@
 pragma Singleton
 
 import QtQuick 2.0
+import Qt.labs.settings 1.0
 
 Item {
-   property bool darkMode: true
+   Settings {
+      id: settings
+      property bool darkMode: true
+   }
 
-   property color backgroundColor: darkMode ? "#121212" : "white"
-   property color surfaceColor: darkMode ? "#292929" : "white"
-   property color surfaceColor2:  darkMode ? "#3b3b3b" : "white"
-   property color borderColor: darkMode ? "#121212" : "#e3e3e3"
-   property color highlightColor: darkMode ? "#313131" : "gray"
+   property color backgroundColor: settings.darkMode ? "#121212" : "white"
+   property color surfaceColor: settings.darkMode ? "#292929" : "white"
+   property color surfaceColor2:  settings.darkMode ? "#3b3b3b" : "white"
+   property color borderColor: settings.darkMode ? "#121212" : "#e3e3e3"
+   property color highlightColor: settings.darkMode ? "#313131" : "gray"
 
-   property color mainText: darkMode ? "#e3e3e3" : "black"
-   property color detailText: darkMode ? "#acacac" : "gray"
-   property color accentText: darkMode ? "#538cc6" : "#336699"
+   property color mainText: settings.darkMode ? "#e3e3e3" : "black"
+   property color detailText: settings.darkMode ? "#acacac" : "gray"
+   property color accentText: settings.darkMode ? "#538cc6" : "#336699"
 }

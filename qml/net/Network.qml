@@ -34,13 +34,20 @@ Item {
       request.send();
    }
 
-   function searchStation(searchTerm, cb) {
+   function searchStation(searchTerm, category, sortByName, resultListReversed, cb) {
       if (!baseUrl)
          return cb(i18n.tr("Base URL unavailable"))
 
-      var request = new XMLHttpRequest()
+      var sortBy = sortNameToId(sortByName)
 
-      request.open('GET', baseUrl + "/json/stations/byname/" + encodeURIComponent(searchTerm), true);
+      var request = new XMLHttpRequest()
+      var url = baseUrl + "/json/stations/" + categoryNameToId(category) + "/" + encodeURIComponent(searchTerm)
+
+      url += "?order=" + sortBy + "&reverse=" + resultListReversed
+
+      console.log(url)
+
+      request.open('GET', url, true);
       request.setRequestHeader("User-Agent", "UbuntuTouch-Radio-App")
 
       request.onload = function() {
@@ -55,7 +62,10 @@ Item {
                      url: x.url_resolved,
                      image: x.favicon,
                      countryCode: x.countrycode,
-                     favourite: Functions.hasFavourite(x.stationuuid)
+                     favourite: Functions.hasFavourite(x.stationuuid),
+                     language: x.language,
+                     votes: x.votes,
+                     clickcount: x.clickcount
                   }
                });
             } catch (e) {
@@ -88,5 +98,30 @@ Item {
       }
 
       request.send()
+   }
+
+   function categoryNameToId(name) {
+      switch (name) {
+      case i18n.tr("Language"): return "bylanguage"
+      case i18n.tr("Tag"):      return "bytag"
+      case i18n.tr("Country"):  return "bycountry"
+      case i18n.tr("Name"):     break
+      }
+
+      return "byname"
+   }
+
+   function sortNameToId(name) {
+      switch (name) {
+      case i18n.tr("Tags"):        return "tags"
+      case i18n.tr("Country"):     return "country"
+      case i18n.tr("Language"):    return "language"
+      case i18n.tr("Votes"):       return "votes"
+      case i18n.tr("Click count"): return "clickcount"
+      case i18n.tr("Random"):      return "random"
+      case i18n.tr("Name"):        break
+      }
+
+      return "name"
    }
 }

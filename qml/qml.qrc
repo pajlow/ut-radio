@@ -14,5 +14,6 @@
         <file>colors/Colors.qml</file>
         <file>colors/qmldir</file>
         <file>util/ThemedHeader.qml</file>
+        <file>pages/SettingsPage.qml</file>
     </qresource>
 </RCC>

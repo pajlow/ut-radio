@@ -17,21 +17,22 @@ Item {
    }
 
    function info(title, text) {
-      queue.push({ type: "info", title, text })
-
-      if (!activeNotification)
-         nextNotification()
+      addNotification({ type: "info", title, text })
    }
 
    function warning(title, text) {
-      queue.push({ type: "warning", title, text })
-
-      if (!activeNotification)
-         nextNotification()
+      addNotification({ type: "warning", title, text })
    }
 
    function error(title, text) {
-      queue.push({ type: "error", title, text })
+      addNotification({ type: "error", title, text })
+   }
+
+   function addNotification(not) {
+      if (activeNotification && isSameAs(activeNotification, not))
+         return
+
+      queue.push(not)
 
       if (!activeNotification)
          nextNotification()
@@ -57,8 +58,14 @@ Item {
       if (listener)
          listener.onNotification(activeNotification)
 
-      if (activeNotification && activeNotification.type === "info" || activeNotification && activeNotification.type == "warning")
+      if (activeNotification && activeNotification.type === "info" || activeNotification && activeNotification.type === "warning")
          timerAutoDismiss.start()
+   }
+
+   function isSameAs(notification1, notification2) {
+      return notification1.type === notification2.type
+            && notification1.title === notification2.title
+            && notification1.text === notification2.text
    }
 
    Timer {

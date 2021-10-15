@@ -16,72 +16,30 @@ Rectangle {
    property var padding: units.gu(3)
    property bool netReady: false
    property bool resumeAfterSuspend: false
+   property bool resumeAfterNetworkError: false
+   property bool isReconnecting: false
    property var lastStation
 
    color: Colors.backgroundColor
+
+   Component.onCompleted: init()
+
+   ListModel {
+      id: favouriteModel
+   }
 
    Settings {
       id: settings
       property string lastStation: "{}"
    }
 
-   MediaPlayer {
-      id: audioPlayer
-      audioRole: MediaPlayer.MusicRole
-      source: lastStation && lastStation.url || ""
+   Timer {
+      id: reconnectTimer
+      interval: 15000
+      repeat: false
+      running: false
 
-      metaData.onMetaDataChanged: {
-         if (metaData.title) {
-            stationTitleText.text = metaData.title
-            stationTitleText.color = Colors.accentText
-         } else {
-            stationTitleText.text = textForStatus()
-            stationTitleText.color = Colors.detailText
-         }
-      }
-
-      onPlaybackStateChanged: {
-         stationTitleText.text = textForPlaybackStatus()
-         stationTitleText.color = Colors.detailText
-      }
-
-      onStatusChanged: {
-         stationTitleText.text = textForStatus()
-         stationTitleText.color = Colors.detailText
-
-         if (status === MediaPlayer.EndOfMedia)
-            audioPlayer.play()
-      }
-
-      onError: Notify.error(i18n.tr("Error"), error)
-
-      function textForPlaybackStatus() {
-         switch (audioPlayer.playbackState) {
-         case MediaPlayer.PlayingState: return i18n.tr("Playing")
-         case MediaPlayer.StoppedState: return i18n.tr("Stopped")
-         case MediaPlayer.PausedState: return i18n.tr("Paused")
-         }
-      }
-
-      function textForStatus() {
-         switch (audioPlayer.status) {
-         case MediaPlayer.NoMedia: return i18n.tr("NoMedia")
-         case MediaPlayer.Loading: return i18n.tr("Loading")
-         case MediaPlayer.Loaded: return textForPlaybackStatus()
-         case MediaPlayer.Buffering: return i18n.tr("Buffering")
-         case MediaPlayer.Stalled: return i18n.tr("Stalled")
-         case MediaPlayer.Buffered: return i18n.tr("Buffered")
-         case MediaPlayer.EndOfMedia:
-         case MediaPlayer.InvalidMedia:
-         case MediaPlayer.UnknownStatus: return textForPlaybackStatus()
-         }
-
-         return ""
-      }
-
-      function isPlaying() {
-         return audioPlayer.playbackState == MediaPlayer.PlayingState
-      }
+      onTriggered: onReconnectTimer()
    }
 
    Connections {
@@ -106,28 +64,26 @@ Rectangle {
       }
    }
 
-   ListModel {
-      id: favouriteModel
-   }
+   MediaPlayer {
+      id: audioPlayer
+      audioRole: MediaPlayer.MusicRole
+      source: lastStation && lastStation.url || ""
 
-   Component.onCompleted: {
-      Network.init(function(err) {
-         netReady = !err
+      metaData.onMetaDataChanged: {
+         if (metaData.title) {
+            stationTitleText.text = metaData.title
+            stationTitleText.color = Colors.accentText
+         } else {
+            stationTitleText.text = textForStatus()
+            stationTitleText.color = Colors.detailText
+         }
+      }
 
-         if (err)
-            Notify.error(i18n.tr("Radio Browser"), i18n.tr("Failed to lookup hostname for radio-browser.info. Searching for web streams might be unavailable. Check internet connection and restart app.") + "\n" + err)
-      })
-
-      Functions.favouriteModel = favouriteModel
-      Functions.init()
-
-      var s
-      try {
-         s = JSON.parse(settings.value("lastStation"))
-         lastStation = s
-         lastStation.favourite = Functions.hasFavourite(s.stationID)
-         favIcon.name = s.favourite ? "starred" : "non-starred"
-      } catch (e) {}
+      onPlaybackStateChanged: mainPage.onPlaybackStateChanged()
+      onStatusChanged: mainPage.onStatusChanged(status)
+      onError: {
+         Notify.error(i18n.tr("Error"), audioPlayer.errorString)
+      }
    }
 
    Column {
@@ -176,7 +132,7 @@ Rectangle {
          Text {
             id: stationTitleText
             anchors.horizontalCenter: parent.horizontalCenter
-            text: audioPlayer.textForStatus()
+            text: mainPage.textForStatus()
          }
       }
 
@@ -230,13 +186,7 @@ Rectangle {
             iconName: "media-playback-start"
             enabled: !!lastStation
 
-            onClicked: {
-               audioPlayer.play()
-               mainPage.resumeAfterSuspend = true
-
-               if (!lastStation.manual)
-                  Network.countClick(lastStation)
-            }
+            onClicked: mainPage.playStream()
          }
 
          Button {
@@ -247,10 +197,7 @@ Rectangle {
             iconName: "media-playback-stop"
             enabled: !!lastStation
 
-            onClicked: {
-               mainPage.resumeAfterSuspend = false
-               audioPlayer.stop()
-            }
+            onClicked: mainPage.stopStream()
          }
 
          Button {
@@ -263,7 +210,7 @@ Rectangle {
 
             onClicked: {
                var p = pageStack.push(Qt.resolvedUrl("./UrlPage.qml"))
-               p.stationChanged.connect(setLastStation)
+               p.stationChanged.connect(mainPage.setLastStation)
             }
          }
       }
@@ -272,12 +219,34 @@ Rectangle {
          anchors.horizontalCenter: parent.horizontalCenter
          spacing: mainPage.padding
 
+         Rectangle {
+            height: units.gu(2)
+            width: units.gu(2)
+            color: "transparent"
+         }
+
          Text {
             anchors.verticalCenter: parent.verticalCenter
             text: i18n.tr("Favourites")
             color: Colors.mainText
             font.bold: true
             visible: favouriteModel.count
+         }
+
+         Icon {
+            id: settingsIcon
+            height: units.gu(2)
+            width: units.gu(2)
+            anchors.verticalCenter: parent.verticalCenter
+
+            name: "settings"
+
+            MouseArea {
+               anchors.fill: parent
+               onClicked: {
+                  var p = pageStack.push(Qt.resolvedUrl("./SettingsPage.qml"))
+               }
+            }
          }
       }
    }
@@ -300,7 +269,7 @@ Rectangle {
          divider.colorTo: Colors.borderColor
          highlightColor: Colors.highlightColor
 
-         onClicked: setLastStation(JSON.parse(JSON.stringify(favouriteModel.get(index))))
+         onClicked: mainPage.setLastStation(JSON.parse(JSON.stringify(favouriteModel.get(index))))
 
          leadingActions: ListItemActions {
             actions: [
@@ -329,13 +298,152 @@ Rectangle {
       }
    }
 
+   // *******************************************************************
+   // Init
+   // *******************************************************************
+
+   function init() {
+      Network.init(function(err) {
+         netReady = !err
+
+         if (err)
+            Notify.error(i18n.tr("Radio Browser"), i18n.tr("Failed to lookup hostname for radio-browser.info. Searching for web streams might be unavailable. Check internet connection and restart app.") + "\n" + err)
+      })
+
+      Functions.favouriteModel = favouriteModel
+      Functions.init()
+
+      var s
+      try {
+         s = JSON.parse(settings.value("lastStation"))
+         lastStation = s
+         lastStation.favourite = Functions.hasFavourite(s.stationID)
+         favIcon.name = s.favourite ? "starred" : "non-starred"
+      } catch (e) {}
+   }
+
+   // *******************************************************************
+   // Player Controls
+   // *******************************************************************
+
+   function playStream() {
+      stopReconnecting()
+      audioPlayer.play()
+      mainPage.resumeAfterSuspend = true
+      mainPage.resumeAfterNetworkError = true
+
+      if (!lastStation.manual)
+         Network.countClick(lastStation)
+   }
+
+   function stopStream() {
+      stopReconnecting()
+      mainPage.resumeAfterSuspend = false
+      mainPage.resumeAfterNetworkError = false
+      audioPlayer.stop()
+   }
+
    function setLastStation(station) {
       audioPlayer.stop()
       mainPage.lastStation = station
       favIcon.name = lastStation.favourite ? "starred" : "non-starred"
       settings.setValue("lastStation", JSON.stringify(mainPage.lastStation))
       audioPlayer.play()
+      mainPage.resumeAfterSuspend = true
+      mainPage.resumeAfterNetworkError = true
 
       Notify.info(i18n.tr("Playing"), station.name || i18n.tr("Web stream"))
+   }
+
+   // *******************************************************************
+   // Connection recovery
+   // *******************************************************************
+
+   function reconnectLater() {
+      console.log("Connection broken, trying to reconnect in " + (reconnectTimer.interval/1000) + "s ...")
+      reconnectTimer.start()
+      resumeAfterNetworkError = false
+
+      Notify.warning(i18n.tr("Reconnecting"), i18n.tr("Connection broken, trying to reconnect ..."))
+   }
+
+   function stopReconnecting() {
+      isReconnecting = false
+      reconnectTimer.stop()
+   }
+
+   function onReconnectTimer() {
+      console.log("Trying to reconnect ...")
+
+      isReconnecting = true
+      var ls = mainPage.lastStation
+      mainPage.lastStation = null
+      audioPlayer.stop()
+      mainPage.lastStation = ls
+      audioPlayer.play()
+   }
+
+   // *******************************************************************
+   // SLOTS
+   // *******************************************************************
+
+   function onPlaybackStateChanged() {
+      stationTitleText.text = textForPlaybackStatus()
+      stationTitleText.color = Colors.detailText
+
+      if (audioPlayer.playbackState === MediaPlayer.PlayingState
+            && audioPlayer.status > 0 && audioPlayer.status < 4) {
+         stopReconnecting()
+      }
+
+      if (audioPlayer.playbackRate === MediaPlayer.PausedState && isReconnecting) {
+         audioPlayer.play()
+      }
+   }
+
+   function onStatusChanged(status) {
+      stationTitleText.text = textForStatus()
+      stationTitleText.color = Colors.detailText
+
+      if (resumeAfterNetworkError &&
+            (status === MediaPlayer.EndOfMedia
+             || status === MediaPlayer.InvalidMedia
+             || status === MediaPlayer.UnknownStatus)) {
+         reconnectLater();
+      }
+      else if (status === MediaPlayer.EndOfMedia)
+         audioPlayer.play()
+   }
+
+   // *******************************************************************
+   // Util
+   // *******************************************************************
+
+   function textForPlaybackStatus() {
+      switch (audioPlayer.playbackState) {
+      case MediaPlayer.PlayingState: return i18n.tr("Playing")
+      case MediaPlayer.StoppedState: return i18n.tr("Stopped")
+      case MediaPlayer.PausedState:  return i18n.tr("Paused")
+      }
+   }
+
+   function textForStatus() {
+      switch (audioPlayer.status) {
+      case MediaPlayer.NoMedia:       return i18n.tr("NoMedia")
+      case MediaPlayer.Loading:       return i18n.tr("Loading")
+      case MediaPlayer.Loaded:        return textForPlaybackStatus()
+      case MediaPlayer.Buffering:     return i18n.tr("Buffering")
+      case MediaPlayer.Stalled:       return i18n.tr("Stalled")
+      case MediaPlayer.Buffered:      return i18n.tr("Buffered")
+      case MediaPlayer.EndOfMedia:    return i18n.tr("End of media")
+      case MediaPlayer.InvalidMedia:  return i18n.tr("Invalid media")
+      case MediaPlayer.UnknownStatus: return i18n.tr("Unknown status")
+      }
+
+      return ""
+   }
+
+   function isPlaying() {
+      return audioPlayer.playbackState == MediaPlayer.PlayingState
    }
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radio.s710\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-09 17:20+0000\n"
+"POT-Creation-Date: 2021-10-15 08:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../qml/net/Network.qml:25 ../qml/net/Network.qml:30
-#: ../qml/net/Network.qml:67 ../qml/net/Network.qml:86
+#: ../qml/net/Network.qml:77 ../qml/net/Network.qml:96
 msgid "Failed to determine base host"
 msgstr ""
 
@@ -26,80 +26,161 @@ msgstr ""
 msgid "Base URL unavailable"
 msgstr ""
 
-#: ../qml/net/Network.qml:62
+#: ../qml/net/Network.qml:72
 msgid "Failed to parse search results"
 msgstr ""
 
-#: ../qml/pages/MainPage.qml:56
+#: ../qml/net/Network.qml:105 ../qml/net/Network.qml:118
+#: ../qml/pages/SearchPage.qml:21 ../qml/pages/SearchPage.qml:29
+msgid "Language"
+msgstr ""
+
+#: ../qml/net/Network.qml:106 ../qml/pages/SearchPage.qml:19
+msgid "Tag"
+msgstr ""
+
+#: ../qml/net/Network.qml:107 ../qml/net/Network.qml:117
+#: ../qml/pages/SearchPage.qml:20 ../qml/pages/SearchPage.qml:28
+msgid "Country"
+msgstr ""
+
+#: ../qml/net/Network.qml:108 ../qml/net/Network.qml:122
+#: ../qml/pages/SearchPage.qml:18 ../qml/pages/SearchPage.qml:26
+msgid "Name"
+msgstr ""
+
+#: ../qml/net/Network.qml:116 ../qml/pages/SearchPage.qml:27
+msgid "Tags"
+msgstr ""
+
+#: ../qml/net/Network.qml:119 ../qml/pages/SearchPage.qml:30
+#: ../qml/pages/SearchPage.qml:224
+msgid "Votes"
+msgstr ""
+
+#: ../qml/net/Network.qml:120 ../qml/pages/SearchPage.qml:31
+#: ../qml/pages/SearchPage.qml:229
+msgid "Click count"
+msgstr ""
+
+#: ../qml/net/Network.qml:121 ../qml/pages/SearchPage.qml:32
+msgid "Random"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:85
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/MainPage.qml:60 ../qml/pages/MainPage.qml:339
-msgid "Playing"
+#: ../qml/pages/MainPage.qml:107
+msgid "No station"
 msgstr ""
 
-#: ../qml/pages/MainPage.qml:61
-msgid "Stopped"
+#: ../qml/pages/MainPage.qml:230 ../qml/util/Functions.qml:40
+msgid "Favourites"
 msgstr ""
 
-#: ../qml/pages/MainPage.qml:62
-msgid "Paused"
-msgstr ""
-
-#: ../qml/pages/MainPage.qml:68
-msgid "NoMedia"
-msgstr ""
-
-#: ../qml/pages/MainPage.qml:69
-msgid "Loading"
-msgstr ""
-
-#: ../qml/pages/MainPage.qml:71
-msgid "Buffering"
-msgstr ""
-
-#: ../qml/pages/MainPage.qml:72
-msgid "Stalled"
-msgstr ""
-
-#: ../qml/pages/MainPage.qml:73
-msgid "Buffered"
-msgstr ""
-
-#: ../qml/pages/MainPage.qml:118
+#: ../qml/pages/MainPage.qml:310
 msgid ""
 "Failed to lookup hostname for radio-browser.info. Searching for web streams "
 "might be unavailable. Check internet connection and restart app."
 msgstr ""
 
-#: ../qml/pages/MainPage.qml:118 ../qml/pages/SearchPage.qml:62
+#: ../qml/pages/MainPage.qml:310 ../qml/pages/SearchPage.qml:171
 msgid "Radio Browser"
 msgstr ""
 
-#: ../qml/pages/MainPage.qml:151
-msgid "No station"
+#: ../qml/pages/MainPage.qml:355 ../qml/pages/MainPage.qml:424
+msgid "Playing"
 msgstr ""
 
-#: ../qml/pages/MainPage.qml:277 ../qml/util/Functions.qml:40
-msgid "Favourites"
-msgstr ""
-
-#: ../qml/pages/MainPage.qml:339
+#: ../qml/pages/MainPage.qml:355
 msgid "Web stream"
 msgstr ""
 
-#: ../qml/pages/SearchPage.qml:21 ../qml/pages/SearchPage.qml:49
+#: ../qml/pages/MainPage.qml:367
+msgid "Connection broken, trying to reconnect ..."
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:367
+msgid "Reconnecting"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:425
+msgid "Stopped"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:426
+msgid "Paused"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:432
+msgid "NoMedia"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:433
+msgid "Loading"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:435
+msgid "Buffering"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:436
+msgid "Stalled"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:437
+msgid "Buffered"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:438
+msgid "End of media"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:439
+msgid "Invalid media"
+msgstr ""
+
+#: ../qml/pages/MainPage.qml:440
+msgid "Unknown status"
+msgstr ""
+
+#: ../qml/pages/SearchPage.qml:41 ../qml/pages/SearchPage.qml:158
 msgid "Search"
 msgstr ""
 
-#: ../qml/pages/SearchPage.qml:44
+#: ../qml/pages/SearchPage.qml:77
+msgid "Search by:"
+msgstr ""
+
+#: ../qml/pages/SearchPage.qml:113
+msgid "Sort by:"
+msgstr ""
+
+#: ../qml/pages/SearchPage.qml:154
 msgid "Enter search term"
 msgstr ""
 
-#: ../qml/pages/SearchPage.qml:62
+#: ../qml/pages/SearchPage.qml:171
 msgid ""
 "Failed to search for stations at radio-browser.info. Check internet "
 "connection."
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:26
+msgid "Settings"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:53
+msgid "Appearance"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:56
+msgid "Restart the app after changing dark mode option"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:76
+msgid "Dark mode:"
 msgstr ""
 
 #: ../qml/pages/UrlPage.qml:21
