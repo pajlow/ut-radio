@@ -15,5 +15,6 @@
         <file>colors/qmldir</file>
         <file>util/ThemedHeader.qml</file>
         <file>pages/SettingsPage.qml</file>
+        <file>util/ScrollableText.qml</file>
     </qresource>
 </RCC>

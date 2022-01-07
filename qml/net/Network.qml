@@ -45,8 +45,6 @@ Item {
 
       url += "?order=" + sortBy + "&reverse=" + resultListReversed
 
-      console.log(url)
-
       request.open('GET', url, true);
       request.setRequestHeader("User-Agent", "UbuntuTouch-Radio-App")
 

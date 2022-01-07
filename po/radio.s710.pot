@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radio.s710\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-15 08:48+0000\n"
+"POT-Creation-Date: 2022-01-07 13:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../qml/net/Network.qml:25 ../qml/net/Network.qml:30
-#: ../qml/net/Network.qml:77 ../qml/net/Network.qml:96
+#: ../qml/net/Network.qml:75 ../qml/net/Network.qml:94
 msgid "Failed to determine base host"
 msgstr ""
 
@@ -26,44 +26,44 @@ msgstr ""
 msgid "Base URL unavailable"
 msgstr ""
 
-#: ../qml/net/Network.qml:72
+#: ../qml/net/Network.qml:70
 msgid "Failed to parse search results"
 msgstr ""
 
-#: ../qml/net/Network.qml:105 ../qml/net/Network.qml:118
+#: ../qml/net/Network.qml:103 ../qml/net/Network.qml:116
 #: ../qml/pages/SearchPage.qml:21 ../qml/pages/SearchPage.qml:29
 msgid "Language"
 msgstr ""
 
-#: ../qml/net/Network.qml:106 ../qml/pages/SearchPage.qml:19
+#: ../qml/net/Network.qml:104 ../qml/pages/SearchPage.qml:19
 msgid "Tag"
 msgstr ""
 
-#: ../qml/net/Network.qml:107 ../qml/net/Network.qml:117
+#: ../qml/net/Network.qml:105 ../qml/net/Network.qml:115
 #: ../qml/pages/SearchPage.qml:20 ../qml/pages/SearchPage.qml:28
 msgid "Country"
 msgstr ""
 
-#: ../qml/net/Network.qml:108 ../qml/net/Network.qml:122
+#: ../qml/net/Network.qml:106 ../qml/net/Network.qml:120
 #: ../qml/pages/SearchPage.qml:18 ../qml/pages/SearchPage.qml:26
 msgid "Name"
 msgstr ""
 
-#: ../qml/net/Network.qml:116 ../qml/pages/SearchPage.qml:27
+#: ../qml/net/Network.qml:114 ../qml/pages/SearchPage.qml:27
 msgid "Tags"
 msgstr ""
 
-#: ../qml/net/Network.qml:119 ../qml/pages/SearchPage.qml:30
+#: ../qml/net/Network.qml:117 ../qml/pages/SearchPage.qml:30
 #: ../qml/pages/SearchPage.qml:224
 msgid "Votes"
 msgstr ""
 
-#: ../qml/net/Network.qml:120 ../qml/pages/SearchPage.qml:31
+#: ../qml/net/Network.qml:118 ../qml/pages/SearchPage.qml:31
 #: ../qml/pages/SearchPage.qml:229
 msgid "Click count"
 msgstr ""
 
-#: ../qml/net/Network.qml:121 ../qml/pages/SearchPage.qml:32
+#: ../qml/net/Network.qml:119 ../qml/pages/SearchPage.qml:32
 msgid "Random"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/MainPage.qml:107
+#: ../qml/pages/MainPage.qml:109
 msgid "No station"
 msgstr ""
 

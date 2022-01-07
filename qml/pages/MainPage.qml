@@ -71,10 +71,10 @@ Rectangle {
 
       metaData.onMetaDataChanged: {
          if (metaData.title) {
-            stationTitleText.text = metaData.title
+            stationTitleText.displayText = metaData.title
             stationTitleText.color = Colors.accentText
          } else {
-            stationTitleText.text = textForStatus()
+            stationTitleText.displayText = textForStatus()
             stationTitleText.color = Colors.detailText
          }
       }
@@ -91,48 +91,28 @@ Rectangle {
       anchors.top: parent.top
       anchors.topMargin: mainPage.padding
       anchors.horizontalCenter: parent.horizontalCenter
+      width: parent.width * 0.9
       spacing: mainPage.padding
 
       Column {
+         id: playerTitles
          anchors.horizontalCenter: parent.horizontalCenter
+         width: parent.width
          spacing: units.gu(1)
 
-         Row {
-            anchors.horizontalCenter: parent.horizontalCenter
-            spacing: mainPage.padding/2
-
-            Text {
+            ScrollableText {
                id: stationText
-               anchors.verticalCenter: parent.verticalCenter
-               text: lastStation && lastStation.name || i18n.tr("No station")
                font.bold: true
                color: Colors.mainText
+               width: playerTitles.width
+
+               displayText: lastStation && lastStation.name || i18n.tr("No station")
             }
-
-            Icon {
-               id: favIcon
-               height: units.gu(2)
-               width: units.gu(2)
-               visible: !!lastStation
-
-               MouseArea {
-                  anchors.fill: parent
-                  onClicked: {
-                     lastStation.favourite = !lastStation.favourite
-                     favIcon.name = lastStation.favourite ? "starred" : "non-starred"
-
-                     if (!lastStation.favourite)
-                        Functions.removeFavourite(lastStation.stationID)
-                     else
-                        Functions.saveFavourite(lastStation)
-                  }
-               }
-            }
-         }
-         Text {
+         ScrollableText {
             id: stationTitleText
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: mainPage.textForStatus()
+            width: playerTitles.width
+
+            displayText: mainPage.textForStatus()
          }
       }
 
@@ -187,6 +167,26 @@ Rectangle {
             enabled: !!lastStation
 
             onClicked: mainPage.playStream()
+         }
+
+         Button {
+            id: favIcon
+            width: units.gu(4)
+            height: units.gu(4)
+            anchors.verticalCenter: parent.verticalCenter
+            color: Colors.surfaceColor
+            iconName: lastStation.favourite ? "starred" : "non-starred"
+            enabled: !!lastStation
+
+            onClicked: {
+               lastStation.favourite = !lastStation.favourite
+               favIcon.iconName = lastStation.favourite ? "starred" : "non-starred"
+
+               if (!lastStation.favourite)
+                  Functions.removeFavourite(lastStation.stationID)
+               else
+                  Functions.saveFavourite(lastStation)
+            }
          }
 
          Button {
@@ -318,7 +318,7 @@ Rectangle {
          s = JSON.parse(settings.value("lastStation"))
          lastStation = s
          lastStation.favourite = Functions.hasFavourite(s.stationID)
-         favIcon.name = s.favourite ? "starred" : "non-starred"
+         favIcon.iconName = s.favourite ? "starred" : "non-starred"
       } catch (e) {}
    }
 
@@ -346,7 +346,7 @@ Rectangle {
    function setLastStation(station) {
       audioPlayer.stop()
       mainPage.lastStation = station
-      favIcon.name = lastStation.favourite ? "starred" : "non-starred"
+      favIcon.iconName = lastStation.favourite ? "starred" : "non-starred"
       settings.setValue("lastStation", JSON.stringify(mainPage.lastStation))
       audioPlayer.play()
       mainPage.resumeAfterSuspend = true
@@ -388,7 +388,7 @@ Rectangle {
    // *******************************************************************
 
    function onPlaybackStateChanged() {
-      stationTitleText.text = textForPlaybackStatus()
+      stationTitleText.displayText = textForPlaybackStatus()
       stationTitleText.color = Colors.detailText
 
       if (audioPlayer.playbackState === MediaPlayer.PlayingState
@@ -402,7 +402,7 @@ Rectangle {
    }
 
    function onStatusChanged(status) {
-      stationTitleText.text = textForStatus()
+      stationTitleText.displayText = textForStatus()
       stationTitleText.color = Colors.detailText
 
       if (resumeAfterNetworkError &&
