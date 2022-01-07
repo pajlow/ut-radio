@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: radio.s710\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-30 14:12+0000\n"
-"PO-Revision-Date: 2021-07-30 21:12+0200\n"
+"POT-Creation-Date: 2021-10-15 08:48+0000\n"
+"PO-Revision-Date: 2021-10-15 17:04+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nl\n"
 
 #: ../qml/net/Network.qml:25 ../qml/net/Network.qml:30
-#: ../qml/net/Network.qml:67 ../qml/net/Network.qml:86
+#: ../qml/net/Network.qml:77 ../qml/net/Network.qml:96
 msgid "Failed to determine base host"
 msgstr "De hostnaam kan niet worden vastgesteld"
 
@@ -27,80 +27,145 @@ msgstr "De hostnaam kan niet worden vastgesteld"
 msgid "Base URL unavailable"
 msgstr "De url is onbereikbaar"
 
-#: ../qml/net/Network.qml:62
+#: ../qml/net/Network.qml:72
 msgid "Failed to parse search results"
 msgstr "De zoekresultaten kunnen niet worden verwerkt"
 
-#: ../qml/pages/MainPage.qml:56
+#: ../qml/net/Network.qml:105 ../qml/net/Network.qml:118
+#: ../qml/pages/SearchPage.qml:21 ../qml/pages/SearchPage.qml:29
+msgid "Language"
+msgstr "Taal"
+
+#: ../qml/net/Network.qml:106 ../qml/pages/SearchPage.qml:19
+msgid "Tag"
+msgstr "Label"
+
+#: ../qml/net/Network.qml:107 ../qml/net/Network.qml:117
+#: ../qml/pages/SearchPage.qml:20 ../qml/pages/SearchPage.qml:28
+msgid "Country"
+msgstr "Land"
+
+#: ../qml/net/Network.qml:108 ../qml/net/Network.qml:122
+#: ../qml/pages/SearchPage.qml:18 ../qml/pages/SearchPage.qml:26
+msgid "Name"
+msgstr "Naam"
+
+#: ../qml/net/Network.qml:116 ../qml/pages/SearchPage.qml:27
+msgid "Tags"
+msgstr "Labels"
+
+#: ../qml/net/Network.qml:119 ../qml/pages/SearchPage.qml:30
+#: ../qml/pages/SearchPage.qml:224
+msgid "Votes"
+msgstr "Aantal stemmen"
+
+#: ../qml/net/Network.qml:120 ../qml/pages/SearchPage.qml:31
+#: ../qml/pages/SearchPage.qml:229
+msgid "Click count"
+msgstr "Aantal keer beluisterd"
+
+#: ../qml/net/Network.qml:121 ../qml/pages/SearchPage.qml:32
+msgid "Random"
+msgstr "Willekeurig"
+
+#: ../qml/pages/MainPage.qml:85
 msgid "Error"
 msgstr "Foutmelding"
 
-#: ../qml/pages/MainPage.qml:60 ../qml/pages/MainPage.qml:339
-msgid "Playing"
-msgstr "Aan het afspelen"
+#: ../qml/pages/MainPage.qml:107
+msgid "No station"
+msgstr "Geen radiostation"
 
-#: ../qml/pages/MainPage.qml:61
-msgid "Stopped"
-msgstr "Niet aan het afspelen"
+#: ../qml/pages/MainPage.qml:230 ../qml/util/Functions.qml:40
+msgid "Favourites"
+msgstr "Favorieten"
 
-#: ../qml/pages/MainPage.qml:62
-msgid "Paused"
-msgstr "Onderbroken"
-
-#: ../qml/pages/MainPage.qml:68
-msgid "NoMedia"
-msgstr "Geen media"
-
-#: ../qml/pages/MainPage.qml:69
-msgid "Loading"
-msgstr "Bezig met laden…"
-
-#: ../qml/pages/MainPage.qml:71
-msgid "Buffering"
-msgstr "Bezig met bufferen…"
-
-#: ../qml/pages/MainPage.qml:72
-msgid "Stalled"
-msgstr "Vastgelopen"
-
-#: ../qml/pages/MainPage.qml:73
-msgid "Buffered"
-msgstr "Gebufferd"
-
-#: ../qml/pages/MainPage.qml:118
+#: ../qml/pages/MainPage.qml:310
 msgid ""
 "Failed to lookup hostname for radio-browser.info. Searching for web streams "
 "might be unavailable. Check internet connection and restart app."
 msgstr ""
-"De hostnaam van radio-browser.info kan niet worden vastgesteld - hierdoor "
-"kun je niet zoeken naar streams. Controleer je internetverbinding en "
-"herstart de app."
+"Je kunt niet zoeken naar streams omdat de hostnaam van radio-browser.info "
+"niet kan worden vastgesteld. Controleer je internetverbinding en herstart "
+"de app."
 
-#: ../qml/pages/MainPage.qml:118 ../qml/pages/SearchPage.qml:62
+#: ../qml/pages/MainPage.qml:310 ../qml/pages/SearchPage.qml:171
 msgid "Radio Browser"
 msgstr "Radiostations"
 
-#: ../qml/pages/MainPage.qml:151
-msgid "No station"
-msgstr "Geen radiostation"
+#: ../qml/pages/MainPage.qml:355 ../qml/pages/MainPage.qml:424
+msgid "Playing"
+msgstr "Aan het afspelen"
 
-#: ../qml/pages/MainPage.qml:277
-msgid "Favourites"
-msgstr "Favorieten"
-
-#: ../qml/pages/MainPage.qml:339
+#: ../qml/pages/MainPage.qml:355
 msgid "Web stream"
 msgstr "Internetradio"
 
-#: ../qml/pages/SearchPage.qml:21 ../qml/pages/SearchPage.qml:49
+#: ../qml/pages/MainPage.qml:367
+msgid "Connection broken, trying to reconnect ..."
+msgstr "De verbinding is verbroken - bezig met herstellen…"
+
+#: ../qml/pages/MainPage.qml:367
+msgid "Reconnecting"
+msgstr "Bezig met verbinden…"
+
+#: ../qml/pages/MainPage.qml:425
+msgid "Stopped"
+msgstr "Niet aan het afspelen"
+
+#: ../qml/pages/MainPage.qml:426
+msgid "Paused"
+msgstr "Onderbroken"
+
+#: ../qml/pages/MainPage.qml:432
+msgid "NoMedia"
+msgstr "Geen media"
+
+#: ../qml/pages/MainPage.qml:433
+msgid "Loading"
+msgstr "Bezig met laden…"
+
+#: ../qml/pages/MainPage.qml:435
+msgid "Buffering"
+msgstr "Bezig met bufferen…"
+
+#: ../qml/pages/MainPage.qml:436
+msgid "Stalled"
+msgstr "Vastgelopen"
+
+#: ../qml/pages/MainPage.qml:437
+msgid "Buffered"
+msgstr "Gebufferd"
+
+#: ../qml/pages/MainPage.qml:438
+msgid "End of media"
+msgstr "Het einde is bereikt"
+
+#: ../qml/pages/MainPage.qml:439
+msgid "Invalid media"
+msgstr "Ongeldige media"
+
+#: ../qml/pages/MainPage.qml:440
+msgid "Unknown status"
+msgstr "Onbekende status"
+
+#: ../qml/pages/SearchPage.qml:41 ../qml/pages/SearchPage.qml:158
 msgid "Search"
 msgstr "Zoeken"
 
-#: ../qml/pages/SearchPage.qml:44
+#: ../qml/pages/SearchPage.qml:77
+msgid "Search by:"
+msgstr "Zoeken op:"
+
+#: ../qml/pages/SearchPage.qml:113
+msgid "Sort by:"
+msgstr "Sorteren op:"
+
+#: ../qml/pages/SearchPage.qml:154
 msgid "Enter search term"
 msgstr "Voer een zoekopdracht in"
 
-#: ../qml/pages/SearchPage.qml:62
+#: ../qml/pages/SearchPage.qml:171
 msgid ""
 "Failed to search for stations at radio-browser.info. Check internet "
 "connection."
@@ -108,37 +173,57 @@ msgstr ""
 "radio-browser.info kan niet worden doorzocht - controleer je "
 "internetverbinding."
 
+#: ../qml/pages/SettingsPage.qml:26
+msgid "Settings"
+msgstr "Instellingen"
+
+#: ../qml/pages/SettingsPage.qml:53
+msgid "Appearance"
+msgstr "Vormgeving"
+
+#: ../qml/pages/SettingsPage.qml:56
+msgid "Restart the app after changing dark mode option"
+msgstr "Herstart de app om de themawijziging toe te passen"
+
+#: ../qml/pages/SettingsPage.qml:76
+msgid "Dark mode:"
+msgstr "Donker thema:"
+
 #: ../qml/pages/UrlPage.qml:21
 msgid "Manual stream URL"
 msgstr "Eigen url"
 
-#: ../qml/pages/UrlPage.qml:57
+#: ../qml/pages/UrlPage.qml:56
 msgid "Enter stream URL"
 msgstr "Voer een stream-url in"
 
-#: ../qml/pages/UrlPage.qml:63
+#: ../qml/pages/UrlPage.qml:62
 msgid "URL:"
 msgstr "URL:"
 
-#: ../qml/pages/UrlPage.qml:85
+#: ../qml/pages/UrlPage.qml:83
 msgid "Enter stream name"
 msgstr "Geef de stream een naam"
 
-#: ../qml/pages/UrlPage.qml:91
+#: ../qml/pages/UrlPage.qml:89
 msgid "Name:"
 msgstr "Naam:"
 
-#: ../qml/pages/UrlPage.qml:114
+#: ../qml/pages/UrlPage.qml:111
 msgid "Enter URL to station image/artwork"
 msgstr "Voer de url in van het radiologo/een afbeelding"
 
-#: ../qml/pages/UrlPage.qml:120
+#: ../qml/pages/UrlPage.qml:117
 msgid "Image:"
 msgstr "Afbeelding:"
 
-#: ../qml/pages/UrlPage.qml:142
+#: ../qml/pages/UrlPage.qml:138
 msgid "Open stream"
 msgstr "Stream openen"
+
+#: ../qml/util/Functions.qml:40
+msgid "URL for station has already been added as favourite"
+msgstr "De url van dit radiostation staat al in je favorieten"
 
 #: Radio.desktop.in.h:1
 msgid "Radio"
