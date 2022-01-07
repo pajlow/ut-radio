@@ -19,6 +19,6 @@ The search is powered by the awesome https://www.radio-browser.info.
 
 ## License
 
-Copyright (C) 2021-2022  Patrick Fial
+Copyright (C) 2021-2022 Patrick Fial
 
 Licensed under the MIT license
