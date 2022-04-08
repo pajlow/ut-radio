@@ -206,7 +206,6 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             color: Colors.surfaceColor
             iconName: "stock_link"
-            enabled: mainPage.netReady
 
             onClicked: {
                var p = pageStack.push(Qt.resolvedUrl("./UrlPage.qml"))

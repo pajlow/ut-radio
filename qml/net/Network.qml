@@ -11,7 +11,7 @@ Item {
    function init(cb) {
       var request = new XMLHttpRequest()
 
-      request.open('GET', 'https://fr1.api.radio-browser.info/json/servers', true);
+      request.open('GET', 'http://all.api.radio-browser.info/json/servers', true);
       request.setRequestHeader("User-Agent", "UbuntuTouch-Radio-App")
 
       request.onload = function() {
